@@ -14,14 +14,3 @@ class Settings:
     drop_pending_updates: bool
     parse_mode: any
     admins_chat_id: list
-
-    # postgres_host: str
-    # postgres_db: str
-    # postgres_user: str
-    # postgres_password: str
-    # postgres_port: str
-    # postgres_data: str
-    #
-    # redis_host: str
-    # redis_port: int
-    # redis_database: int
