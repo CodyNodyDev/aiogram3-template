@@ -49,8 +49,9 @@ LEAVE_FEEDBACK_MSG = '''
 WRITE_TO_PRIVATE_MSG = '''
 Включен режим диалога с администратором. 
 
-Вы можете написать сообщение и в течение 15-55 минут вам ответят.
-Спасибо за ожидание.
+Напишите сообщение и в ближайшее время администратор ответит.
+
+Если вы хотите завершить диалог, нажимите на кнопку
 '''
 
 
@@ -125,5 +126,13 @@ PROJECT_KB = {
     'keyboard_view': 'column',
     'buttons_data':  [
         {'name': 'Назад', 'callback': 'go_to_portfolio'},
+    ]
+}
+
+END_DIALOG_MODE_KB = {
+    'btns_count': 1,
+    'keyboard_view': 'column',
+    'buttons_data': [
+        {'name': 'Завершить диалог', 'callback': 'finish_to_write_private'},
     ]
 }

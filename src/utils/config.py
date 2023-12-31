@@ -1,4 +1,5 @@
 from typing import Final
+import ast
 
 from decouple import config
 
@@ -13,7 +14,7 @@ Install the welcome handler and the main menu handler
 
 
 TOKEN: Final[str] = config('TOKEN', default='')
-ADMINS_ID: Final[list] = config('ADMINS_ID', default='')
+ADMINS_ID: Final[list] = ast.literal_eval(config('ADMINS_ID', default=''))
 REDIS_URL: Final[str] = config('REDIS_URL', default='')
 
 DROP_PENDING_UPDATES = True
