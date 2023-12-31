@@ -1,7 +1,6 @@
 from aiogram import Bot, Dispatcher
 
 from aiogram.client.session.aiohttp import AiohttpSession
-from aiogram.fsm.storage.redis import RedisStorage
 
 from settings import Settings
 from routes import get_handlers_router
@@ -9,7 +8,8 @@ from routes import get_handlers_router
 
 def create_dispatcher(settings: Settings) -> Dispatcher:
     """
-    :return: Configured ``Dispatcher`` with installed middlewares and included routers
+    :return: Configured Dispatcher with
+            installed middlewares and included routers
     """
 
     dispatcher: Dispatcher = Dispatcher(
@@ -26,7 +26,7 @@ def create_dispatcher(settings: Settings) -> Dispatcher:
 
 def create_bot(settings: Settings) -> Bot:
     """
-    :return: Configured ``Bot``
+    :return: Configured Bot
     """
 
     session: AiohttpSession = AiohttpSession()

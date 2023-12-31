@@ -1,14 +1,12 @@
 from aiogram import Router, types, F
 
 from aiogram.filters import StateFilter
-from aiogram.fsm.context import FSMContext
 
 from src.utils.constants import (
     MSG, PORTFOLIO_KB,
     PROJECT_KB, MAIN_KB
 )
 from src.keyboards.inline.constructor import KBuilder
-from src.states import ConnectToAdmin
 
 
 """ Router messages from users """
@@ -18,8 +16,9 @@ router = Router()
 
 @router.callback_query(F.data == "go_to_portfolio", StateFilter(None))
 async def on_backer(call: types.CallbackQuery):
-
-    """ Pressed the first button """
+    """
+    Pressed the first button
+    """
 
     await call.message.edit_text(
         MSG['PORTFOLIO_MENU']
@@ -32,8 +31,11 @@ async def on_backer(call: types.CallbackQuery):
 
 @router.callback_query(F.data == "go_to_write_next_proj", StateFilter(None))
 async def on_backer(call: types.CallbackQuery):
+    """
+    Flip the cards forward
+    """
 
-    """ Flip the cards forward """
+    # TODO: спрятать текст сообщения в константы
 
     await call.message.edit_text(
         'Сюда идёт динамическая подгрузка проектов ▶️ ДАЛЕЕ'
@@ -46,8 +48,9 @@ async def on_backer(call: types.CallbackQuery):
 
 @router.callback_query(F.data == "go_to_prev_proj", StateFilter(None))
 async def on_backer(call: types.CallbackQuery):
-
-    """ Flip the cards backward """
+    """
+    Flip the cards backward
+    """
 
     await call.message.edit_text(
         'НАЗАД ◀️ Сюда идёт динамическая подгрузка проектов'
@@ -60,8 +63,12 @@ async def on_backer(call: types.CallbackQuery):
 
 @router.callback_query(F.data == "go_to_inside_proj", StateFilter(None))
 async def on_backer(call: types.CallbackQuery):
+    """
+    Open a card
+    """
 
-    """ Open a card """
+    # TODO: спрятать текст сообщения в константы
+    # TODO: сделать динамичесуб подгрузку проектов
 
     await call.message.edit_text(
         'Здесь открывается проект. Идёт его описание.'
@@ -74,8 +81,9 @@ async def on_backer(call: types.CallbackQuery):
 
 @router.callback_query(F.data == "go_to_main_menu", StateFilter(None))
 async def on_backer(call: types.CallbackQuery):
-
-    """ Back button to return to the main menu """
+    """
+    Back button to return to the main menu
+    """
 
     await call.message.edit_text(MSG['MAIN_MENU'])
     await call.message.edit_reply_markup(
@@ -84,24 +92,18 @@ async def on_backer(call: types.CallbackQuery):
     )
 
 
-"""
-Processing of callbacks on the 2 button of the main menu
-"""
-
-
 @router.callback_query(F.data == "go_to_education", StateFilter(None))
 async def on_backer(call: types.CallbackQuery):
+
+    # TODO: задокументировать
 
     await call.message.edit_text(MSG['EDUCATION_MENU'])
 
 
-"""
-Processing of callbacks on the 3 button of the main menu
-"""
-
-
 @router.callback_query(F.data == "go_to_write_feedback", StateFilter(None))
 async def on_backer(call: types.CallbackQuery):
+
+    # TODO: задокументировать
 
     await call.message.edit_text(MSG['LEAVE_FEEDBACK'])
 

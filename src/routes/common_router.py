@@ -28,8 +28,10 @@ async def start_handler(message: Message):
 @router.message(Command('new_name'), StateFilter(None))
 async def start_handler(message: Message):
     """
-    Здесь должно быть изменение контекста для пользователя -> меняем имя бота
+    Some documentation
     """
+
+    # TODO: Здесь должно быть изменение контекста для пользователя -> меняем имя бота
 
     await message.reply(
         text='Тут должен включаться стейт и бот должен запоминать написанное имя',

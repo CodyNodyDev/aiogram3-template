@@ -1,15 +1,6 @@
 from aiogram import Router
 
 
-"""
-The typing module's Final() annotation type is a construct that indicates 
-to type controllers that a variable with a given name cannot be reassigned 
-a value or that the variable is overridden in a subclass.
-
-Install the welcome handler and the main menu handler
-"""
-
-
 def get_handlers_router() -> Router:
     from . import (
         admin_router,
@@ -19,7 +10,7 @@ def get_handlers_router() -> Router:
 
     router = Router()
 
-    # Здесь добавляем миддлвари в роутер на сообщения и коллбеки
+    # TODO: Здесь добавbить миддлвари
 
     router.include_routers(
         admin_router.router,
