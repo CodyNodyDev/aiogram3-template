@@ -17,10 +17,3 @@ ADMINS_ID: Final[list] = config('ADMINS_ID', default='')
 REDIS_URL: Final[str] = config('REDIS_URL', default='')
 
 DROP_PENDING_UPDATES = True
-
-# DB_PORT: Final[str] = config('', default='')
-# DB_HOST: Final[str] = config('', default='')
-# DB_NAME: Final[str] = config('', default='')
-# DB_USER: Final[str] = config('', default='')
-# DB_PASSWORD: Final[str] = config('', default='')
-

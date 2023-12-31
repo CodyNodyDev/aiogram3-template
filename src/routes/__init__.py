@@ -10,7 +10,7 @@ def get_handlers_router() -> Router:
 
     router = Router()
 
-    # TODO: Здесь добавbить миддлвари
+    # TODO: Здесь добавить миддлвари
 
     router.include_routers(
         admin_router.router,
