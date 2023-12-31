@@ -11,20 +11,19 @@ from src.keyboards.keyboard_config import (
 
 """ 
 Customize Keyboard Builder 
-
 Inherited from Aiogram Keyboard builder
 """
 
 
 class KBuilder(InlineKeyboardBuilder):
     def __init__(self, kb_data: dict) -> None:
-
         """
         To create a keyboard, you need an object that contains 3 fields:
 
-        :param buttons_count: the number of buttons
-        :param key_board_view: the view
-        :param buttons_data: list of the data {button name and their callbacks}
+        :param kb_data:
+            buttons_count: the number of buttons
+            key_board_view: the view
+            buttons_data: list of the data {button name and their callbacks}
         """
 
         super().__init__()
@@ -38,7 +37,6 @@ class KBuilder(InlineKeyboardBuilder):
         self._buttons_data = buttons_data
 
     async def build_keyboard(self) -> InlineKeyboardMarkup:
-
         """
         :return: a ready-to-use keyboard
         """
@@ -47,7 +45,6 @@ class KBuilder(InlineKeyboardBuilder):
         return self.as_markup()
 
     async def __reset_data(self) -> None:
-
         """
         If a non-existent keyboard type is passed,
         the data is reset to the default keyboard
@@ -58,8 +55,6 @@ class KBuilder(InlineKeyboardBuilder):
         self._buttons_data = [DEFAULT_DATA]
 
     async def __add_buttons(self) -> None:
-        # print(self._buttons_data[0]['name'], type(self._buttons_data[0]))
-
         for i in range(self._buttons_count):
             self.button(
                 text=self._buttons_data[i][NAME],
@@ -67,7 +62,6 @@ class KBuilder(InlineKeyboardBuilder):
             )
 
     async def __set_view(self) -> bool:
-
         """
         Type of keyboard's view: 'column', 'shop_cards', 'custom'
 
@@ -90,9 +84,9 @@ class KBuilder(InlineKeyboardBuilder):
         elif self._keyboard_view == CUSTOM:
             pass
 
-        # If Error
         await self.__reset_data()
         await self.__add_buttons()
+
         return False
 
 

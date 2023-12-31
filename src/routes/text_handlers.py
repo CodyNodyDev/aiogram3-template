@@ -25,14 +25,13 @@ async def on_backer(call: types.CallbackQuery, state: FSMContext):
     await call.message.edit_text(MSG['WRITE_TO_PRIVATE_MSG'])
 
 
-"""
-Disabling user and admin dialog mode
-"""
 # TODO: добавить кнопку завершения диалога к сообщениям при отправке
-
 
 @router.callback_query(F.data == "finish_to_write_private", StateFilter(ConnectToAdmin))
 async def on_backer(call: types.CallbackQuery, state: FSMContext):
+    """
+    Disabling user and admin dialog-mode
+    """
 
     await state.clear()
 
@@ -41,7 +40,7 @@ async def on_backer(call: types.CallbackQuery, state: FSMContext):
 
 
 @router.message(StateFilter(ConnectToAdmin))
-async def dialog_handler(message: Message, state: FSMContext):
+async def dialog_handler(message: Message):
     """
     Text handler for users
     """
@@ -56,20 +55,11 @@ async def dialog_handler(message: Message, state: FSMContext):
     )
 
 
-"""
-Handler for admin
-"""
+@router.message(StateFilter(ConnectToAdmin))
+async def dialog_admin_handler(message: Message):
+    """
+    Handler for admin
+        Can only respond with a reply
+    """
 
-
-# @router.message()
-# async def dialog_handler(message: Message):
-#     """
-#     This handler receives messages with `/start` command
-#     """
-#
-#     await message.answer(MSG['HELLO'].format(
-#         message.from_user.full_name,
-#         message.from_user.id,
-#         ),
-#         reply_markup=await KBuilder(MAIN_KB).build_keyboard()
-#     )
+    await message.answer('Прилшло сообщение от пользователя')

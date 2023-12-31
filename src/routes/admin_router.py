@@ -1,8 +1,7 @@
 from aiogram import Router
 
 from aiogram.types import Message
-from aiogram.filters import Command
-from aiogram.filters import StateFilter
+from aiogram.filters import Command, StateFilter
 
 
 """ Router administrator's commands """
@@ -10,7 +9,7 @@ from aiogram.filters import StateFilter
 router = Router()
 
 
-# TODO: добавить фальтр админа
+# TODO: добавить фильтр админа
 @router.message(Command('admin'), StateFilter(None))
 async def main_menu_handler(message: Message):
     """

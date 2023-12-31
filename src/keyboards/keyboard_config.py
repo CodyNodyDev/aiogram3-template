@@ -17,7 +17,7 @@ CALLBACK = 'callback'
 
 
 # ====== Doc start ======
-""" Type of keyboard's view """
+""" Types of keyboard's view """
 # ======  Doc end  ======
 
 COLUMN = 'column'
