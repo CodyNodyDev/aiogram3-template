@@ -1,3 +1,5 @@
+from typing import Any
+
 from aiogram import Bot, Dispatcher
 
 from aiogram.client.session.aiohttp import AiohttpSession
@@ -6,15 +8,16 @@ from settings import Settings
 from routes import get_handlers_router
 
 
-def create_dispatcher(settings: Settings) -> Dispatcher:
+def create_dispatcher(settings: Settings, exception_service: Any) -> Dispatcher:
     """
     :return: Configured Dispatcher with
-            installed middlewares and included routers
+            included routers
     """
 
     dispatcher: Dispatcher = Dispatcher(
         name="main_dispatcher",
         settings=settings,
+        exception_service=exception_service
     )
 
     dispatcher.include_router(

@@ -7,4 +7,4 @@ magic-filter==1.0.12
 psycopg2==2.9.9
 redis==5.0.1
 decouple==3.8
-
+cachetools==5.3.2

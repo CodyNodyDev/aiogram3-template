@@ -42,6 +42,7 @@ async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext
 
 
 # TODO: спрятать текст сообщения вышел -> 39 строка и 64
+# TODO: Доставать админов из диспетчера
 
 @router.callback_query(F.data == "finish_to_write_private", StateFilter(ConnectToAdmin))
 async def end_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot):

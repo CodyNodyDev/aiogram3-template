@@ -5,6 +5,7 @@ from aiogram.fsm.storage.redis import RedisStorage
 
 from settings import Settings
 from utils import loggers
+from utils.bugs_channel import SendExceptionService
 from utils.config import TOKEN, ADMINS_ID, DROP_PENDING_UPDATES, REDIS_URL
 from runners import run_polling
 
@@ -21,8 +22,12 @@ def main() -> None:
         parse_mode=ParseMode.HTML,
         admins_chat_id=ADMINS_ID
     )
-    dispatcher: Dispatcher = create_dispatcher(settings=settings)
     bot: Bot = create_bot(settings=settings)
+    exception_service = SendExceptionService(bot)
+    dispatcher: Dispatcher = create_dispatcher(
+                                        settings=settings,
+                                        exception_service=exception_service
+    )
 
     return run_polling(dispatcher=dispatcher, bot=bot)
 

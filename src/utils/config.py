@@ -17,4 +17,9 @@ TOKEN: Final[str] = config('TOKEN', default='')
 ADMINS_ID: Final[list] = ast.literal_eval(config('ADMINS_ID', default=''))
 REDIS_URL: Final[str] = config('REDIS_URL', default='')
 
+CHANNEL_ID = -1002032079838
+
 DROP_PENDING_UPDATES = True
+
+THROTTLING_TIME_PERIOD: Final[int] = 5
+THROTTLING_MAX_RATE: Final[int] = 5
