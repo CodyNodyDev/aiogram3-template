@@ -1,4 +1,6 @@
-from aiogram import Router, types, F
+import logging
+
+from aiogram import Router, types, F, Bot
 
 from aiogram.filters import StateFilter
 from aiogram.types import Message
@@ -7,6 +9,8 @@ from aiogram.fsm.context import FSMContext
 from src.keyboards.inline.constructor import KBuilder
 from src.states import ConnectToAdmin
 from src.utils.constants import MSG, MAIN_KB
+from src.utils.config import ADMINS_ID
+
 
 """ All text handlers and callback for dialog-mode """
 
@@ -19,10 +23,20 @@ async def on_backer(call: types.CallbackQuery, state: FSMContext):
     Enabling user and admin dialog mode
     """
 
-    await state.set_state(ConnectToAdmin.started)
-    await state.set_data({'userid': call.message.from_user.id})
+    try:
+        await state.set_state(ConnectToAdmin.started)
+        await state.set_data({'userid': call.message.from_user.id})
+    except Exception as e:
+        logging.info(e)
 
     await call.message.edit_text(MSG['WRITE_TO_PRIVATE_MSG'])
+
+    user_id = call.message.from_user.id
+    user_name = call.message.from_user.username
+    # await Bot.send_message(
+    #                     ADMINS_ID[0],
+    #                     text=f'User {user_id}\n@{user_name}\nstarted dialog-mode'
+    # )
 
 
 # TODO: добавить кнопку завершения диалога к сообщениям при отправке
