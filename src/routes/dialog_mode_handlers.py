@@ -6,6 +6,7 @@ from aiogram.fsm.context import FSMContext
 
 from src.keyboards.inline.constructor import KBuilder
 from src.filters.AdminFilter import AdminFilter
+from src.services.database.memory import RedisDB
 from src.states import ConnectToAdmin
 from src.utils.constants import MSG, MAIN_KB, END_DIALOG_MODE_KB
 from src.utils.config import ADMINS_ID
@@ -17,7 +18,7 @@ router = Router()
 
 
 @router.callback_query(F.data == "go_to_write_private", StateFilter(None))
-async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot):
+async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot, contex_storage: RedisDB):
     """
     Enabling user and admin dialog mode
 
@@ -26,6 +27,7 @@ async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext
 
     await state.set_state(ConnectToAdmin.started)
     await state.set_data({'userid': call.message.from_user.id})
+    await contex_storage.push('ConnectToAdminState', ConnectToAdmin.started)
 
     await call.message.edit_text(MSG['WRITE_TO_PRIVATE_MSG'])
     await call.message.edit_reply_markup(
@@ -45,7 +47,7 @@ async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext
 # TODO: Доставать админов из диспетчера
 
 @router.callback_query(F.data == "finish_to_write_private", StateFilter(ConnectToAdmin))
-async def end_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot):
+async def end_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot, contex_storage: RedisDB):
     """
     Disabling user and admin dialog-mode
     """
@@ -68,7 +70,7 @@ async def end_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, 
 
 
 @router.message(StateFilter(ConnectToAdmin))
-async def dialog_user_handler(message: Message, bot: Bot):
+async def dialog_user_handler(message: Message, bot: Bot, contex_storage: RedisDB):
     """
     Text handler for users
         Sending message from user to admin
@@ -80,7 +82,7 @@ async def dialog_user_handler(message: Message, bot: Bot):
 
 
 @router.message(AdminFilter())
-async def dialog_admin_handler(message: Message,  bot: Bot):
+async def dialog_admin_handler(message: Message,  bot: Bot, contex_storage: RedisDB):
     """
     Handler for admin
         Can only respond with a reply

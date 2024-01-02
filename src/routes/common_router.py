@@ -26,9 +26,9 @@ async def start_handler(message: Message):
 
 
 @router.message(Command('new_name'), StateFilter(None))
-async def start_handler(message: Message):
+async def new_name_handler(message: Message):
     """
-    Some documentation
+    Set bot's name for current chat
     """
 
     # TODO: Здесь должно быть изменение контекста для пользователя -> меняем имя бота

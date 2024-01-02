@@ -7,8 +7,7 @@ from src.utils.config import REDIS_URL
 
 
 """
-Doc:
-https://docs.aiogram.dev/en/dev-3.x/dispatcher/finite_state_machine/storages.html
+class for managing data in redis
 """
 
 

@@ -13,4 +13,7 @@ class Settings:
     storage: Optional[BaseStorage]
     drop_pending_updates: bool
     parse_mode: any
-    admins_chat_id: list
+
+    contex_storage: any
+    # database: TODO: add postgre
+
