@@ -15,6 +15,9 @@ RUN pip install --no-cache-dir PyYAML
 # Upgrade pip
 RUN pip install --upgrade pip
 
+# Install dbus-python and other dependencies (except PyYAML) first
+RUN pip install --no-cache-dir -r requirements.txt --exclude="PyYAML"
+
 # Install the rest of the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
