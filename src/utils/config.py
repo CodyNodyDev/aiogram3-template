@@ -1,5 +1,4 @@
 from typing import Final
-import ast
 
 import os
 from dotenv import load_dotenv
@@ -16,7 +15,7 @@ Install the welcome handler and the main menu handler
 load_dotenv()
 
 TOKEN: Final[str] = os.getenv('TOKEN')
-ADMINS_ID: Final[list] = ast.literal_eval(os.getenv('ADMINS_ID'))
+ADMINS_ID: Final[list] = os.getenv('ADMINS_ID').split()
 REDIS_URL: Final[str] = os.getenv('REDIS_URL')
 
 CHANNEL_ID = -1002032079838
