@@ -3,7 +3,7 @@ from typing import Union
 from aiogram.types import Message, InlineQuery
 from aiogram.filters import BaseFilter
 
-from src.utils.config import ADMINS_ID
+from utils.config import ADMINS_ID
 
 
 class AdminFilter(BaseFilter):

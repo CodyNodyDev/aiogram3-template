@@ -1,6 +1,6 @@
 from aiogram import Router
 
-from src.middlewares import ThrottlingMiddleware
+from middlewares import ThrottlingMiddleware
 
 
 def get_handlers_router() -> Router:

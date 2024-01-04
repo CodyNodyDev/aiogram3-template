@@ -1,7 +1,7 @@
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.types import InlineKeyboardMarkup
 
-from src.keyboards.keyboard_config import (
+from keyboards.keyboard_config import (
     DEFAULT_DATA,
     NAME, CALLBACK,
     COLUMN, SHOP_CARDS,

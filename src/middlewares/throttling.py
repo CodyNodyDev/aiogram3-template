@@ -8,8 +8,8 @@ from aiogram import BaseMiddleware, Bot
 from aiogram.types import TelegramObject, User
 from cachetools import TTLCache
 
-from src.utils.config import THROTTLING_TIME_PERIOD, THROTTLING_MAX_RATE
-from src.utils.bugs_channel import SendExceptionService
+from utils.config import THROTTLING_TIME_PERIOD, THROTTLING_MAX_RATE
+from utils.bugs_sender import SendExceptionService
 
 
 @dataclass(kw_only=True, slots=True)

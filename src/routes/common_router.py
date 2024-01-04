@@ -3,8 +3,8 @@ from aiogram import Router
 from aiogram.filters import CommandStart, StateFilter, Command
 from aiogram.types import Message
 
-from src.keyboards.inline.constructor import KBuilder
-from src.utils.constants import MSG, MAIN_KB
+from keyboards.inline.constructor import KBuilder
+from utils.constants import MSG, MAIN_KB
 
 """ Router for /start, /help, /info /new_name commands """
 

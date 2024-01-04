@@ -3,7 +3,7 @@ from aiogram import Router
 from aiogram.types import Message
 from aiogram.filters import Command, StateFilter
 
-from src.filters.AdminFilter import AdminFilter
+from filters.AdminFilter import AdminFilter
 
 """ Router administrator's commands """
 

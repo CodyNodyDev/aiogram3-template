@@ -1,7 +1,7 @@
 from datetime import datetime
 from aiogram import Bot
 
-from src.utils.config import CHANNEL_ID
+from utils.config import CHANNEL_ID
 
 
 class SendExceptionService:

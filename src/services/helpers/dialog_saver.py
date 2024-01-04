@@ -3,7 +3,7 @@ import random
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
-from src.utils.config import DIALOGS_URL
+from utils.config import DIALOGS_URL
 
 
 async def save(state: FSMContext):

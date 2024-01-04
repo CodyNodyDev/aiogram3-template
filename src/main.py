@@ -4,11 +4,11 @@ from aiogram.enums import ParseMode
 from aiogram.fsm.storage.redis import RedisStorage
 
 from settings import Settings, setup_logs
-from utils.bugs_channel import SendExceptionService
+from src.utils.bugs_sender import SendExceptionService
 from utils.config import TOKEN, DROP_PENDING_UPDATES, REDIS_URL
 from runners import run_polling
 
-from src.factories import create_dispatcher, create_bot
+from factories import create_dispatcher, create_bot
 
 
 def main() -> None:

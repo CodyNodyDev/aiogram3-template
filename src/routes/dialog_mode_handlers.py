@@ -4,12 +4,12 @@ from aiogram.filters import StateFilter
 from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 
-from src.keyboards.inline.constructor import KBuilder
-from src.filters.AdminFilter import AdminFilter
-from src.services.helpers import dialog_saver
-from src.states import ConnectToAdmin
-from src.utils.constants import MSG, MAIN_KB, END_DIALOG_MODE_KB, END_DIALOG_MODE_ADMINKB
-from src.utils.config import ADMINS_ID
+from keyboards.inline.constructor import KBuilder
+from filters.AdminFilter import AdminFilter
+from services.helpers import dialog_saver
+from states import ConnectToAdmin
+from utils.constants import MSG, MAIN_KB, END_DIALOG_MODE_KB, END_DIALOG_MODE_ADMINKB
+from utils.config import ADMINS_ID
 
 
 """ All text handlers and callback for dialog-mode """

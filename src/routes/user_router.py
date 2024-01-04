@@ -2,11 +2,11 @@ from aiogram import Router, types, F
 
 from aiogram.filters import StateFilter
 
-from src.utils.constants import (
+from utils.constants import (
     MSG, PORTFOLIO_KB,
     PROJECT_KB, MAIN_KB
 )
-from src.keyboards.inline.constructor import KBuilder
+from keyboards.inline.constructor import KBuilder
 
 
 """ Router messages from users """
