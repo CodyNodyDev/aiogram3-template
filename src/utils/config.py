@@ -23,3 +23,6 @@ DROP_PENDING_UPDATES = True
 
 THROTTLING_TIME_PERIOD: Final[int] = 5
 THROTTLING_MAX_RATE: Final[int] = 5
+
+# LOCAL URLS
+DIALOGS_URL = 'assets/dialogs/'

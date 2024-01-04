@@ -17,7 +17,7 @@ def create_dispatcher(settings: Settings, exception_service: Any) -> Dispatcher:
     dispatcher: Dispatcher = Dispatcher(
         name="main_dispatcher",
         settings=settings,
-        contex_storage=settings.contex_storage,
+        storage=settings.storage,
         exception_service=exception_service
     )
 

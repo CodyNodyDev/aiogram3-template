@@ -14,6 +14,5 @@ class Settings:
     drop_pending_updates: bool
     parse_mode: any
 
-    contex_storage: any
     # database: TODO: add postgre
 

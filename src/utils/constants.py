@@ -54,6 +54,9 @@ WRITE_TO_PRIVATE_MSG = '''
 Если вы хотите завершить диалог, нажимите на кнопку
 '''
 
+USER_TIP_FOR_DIALOG = '''Ответ:\n{}\n\nЧтобы завершить диалог, нажмите на кнопку или продолжайте переписку'''
+
+END_DIALOG_MODE = ''''Режим диалога завершен'''
 
 MSG = {
     'HELLO':                HELLO_MSG,
@@ -62,6 +65,8 @@ MSG = {
     'EDUCATION_MENU':       EDUCATION_MENU_MSG,
     'LEAVE_FEEDBACK':       LEAVE_FEEDBACK_MSG,
     'WRITE_TO_PRIVATE_MSG': WRITE_TO_PRIVATE_MSG,
+    'USER_TIP_FOR_DIALOG':  USER_TIP_FOR_DIALOG,
+    'END_DIALOG_MODE':      END_DIALOG_MODE,
 }
 
 
@@ -134,5 +139,13 @@ END_DIALOG_MODE_KB = {
     'keyboard_view': 'column',
     'buttons_data': [
         {'name': 'Завершить диалог', 'callback': 'finish_to_write_private'},
+    ]
+}
+
+END_DIALOG_MODE_ADMINKB = {
+    'btns_count': 1,
+    'keyboard_view': 'column',
+    'buttons_data': [
+        {'name': 'Сохранить диалог', 'callback': 'save_private_dialog'},
     ]
 }
