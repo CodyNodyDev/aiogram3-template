@@ -29,12 +29,9 @@ pydantic_core==2.14.6
 PyNaCl==1.5.0
 pyparsing==2.4.7
 pyperclip==1.8.2
-python-apt==2.4.0+ubuntu2
 python-decouple==3.8
-python3-xlib==0.15
 pytweening==1.0.7
 pytz==2022.1
-pyxdg==0.27
 PyYAML==5.4.1
 redis==5.0.1
 reportlab==3.6.8
