@@ -1,7 +1,8 @@
 from typing import Final
 import ast
 
-from decouple import config
+import os
+from dotenv import load_dotenv
 
 
 """
@@ -12,10 +13,11 @@ a value or that the variable is overridden in a subclass.
 Install the welcome handler and the main menu handler
 """
 
+load_dotenv()
 
-TOKEN: Final[str] = config('TOKEN', default='')
-ADMINS_ID: Final[list] = ast.literal_eval(config('ADMINS_ID', default='["00000"]'))
-REDIS_URL: Final[str] = config('REDIS_URL', default='')
+TOKEN: Final[str] = os.getenv('TOKEN', default='')
+ADMINS_ID: Final[list] = ast.literal_eval(os.getenv('ADMINS_ID', default='["00000"]'))
+REDIS_URL: Final[str] = os.getenv('REDIS_URL', default='')
 
 CHANNEL_ID = -1002032079838
 
