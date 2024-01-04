@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Устанавливаем рабочую директорию в контейнере
-WORKDIR /usr/src
+WORKDIR /usr/app/src
 
 # Копируем файлы зависимостей в рабочую директорию
 COPY requirements.txt ./
@@ -16,7 +16,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Копируем остальные файлы проекта в рабочую директорию
-COPY ./src /usr/src
+COPY ./src /usr/app/src
 
 # Задаем команду для запуска приложения
 CMD ["python", "./main.py"]
