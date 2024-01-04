@@ -10,7 +10,6 @@ cachetools==5.3.2
 certifi==2023.11.17
 colorama==0.4.4
 cryptography==3.4.8
-dbus-python==1.2.18
 frozenlist==1.4.1
 importlib-metadata==4.6.4
 launchpadlib==1.10.16
