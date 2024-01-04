@@ -1,10 +1,10 @@
 FROM python:3.10.12
 
-COPY src/requirements.txt .
+COPY requirements.txt .
 
 WORKDIR /app
 
-COPY ./ ./
+COPY . .
 
 # Установите зависимости
 RUN pip install --no-cache-dir -r requirements.txt
