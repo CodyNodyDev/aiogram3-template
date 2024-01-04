@@ -4,7 +4,7 @@ from aiogram.enums import ParseMode
 from aiogram.fsm.storage.redis import RedisStorage
 
 from settings import Settings
-from utils.loggers import logger
+from utils import logger
 from utils.bugs_channel import SendExceptionService
 from utils.config import TOKEN, DROP_PENDING_UPDATES, REDIS_URL
 from runners import run_polling
