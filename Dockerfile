@@ -9,6 +9,8 @@ COPY requirements.txt .
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+RUN pip install --no-cache-dir PyYAML
+
 # Copy the rest of the application code into the container at /app
 COPY . .
 
