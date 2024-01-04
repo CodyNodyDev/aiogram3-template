@@ -7,4 +7,4 @@ RUN pip freeze > requirements.txt
 # copy project
 COPY . /src
 # run app
-CMD ["python", "src/main.py"]
+CMD ["python", "main.py"]
