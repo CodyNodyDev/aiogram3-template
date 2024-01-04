@@ -10,7 +10,6 @@ cachetools==5.3.2
 certifi==2023.11.17
 colorama==0.4.4
 cryptography==3.4.8
-cupshelpers==1.0
 dbus-python==1.2.18
 defer==1.0.6
 distro==1.7.0
