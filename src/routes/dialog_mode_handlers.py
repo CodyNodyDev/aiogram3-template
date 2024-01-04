@@ -1,4 +1,4 @@
-from aiogram import Router, types, F, Bot
+from aiogram import Router, types, F, Bot, Dispatcher
 
 from aiogram.filters import StateFilter
 from aiogram.types import Message
@@ -26,7 +26,6 @@ async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext
     """
 
     await state.set_state(ConnectToAdmin.started)
-
     await call.message.edit_text(MSG['WRITE_TO_PRIVATE_MSG'])
     await call.message.edit_reply_markup(
                                     reply_markup=await KBuilder(END_DIALOG_MODE_KB).build_keyboard()
@@ -40,9 +39,6 @@ async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext
                         text=f'User {user_id}\n@{user_name}\n\nhas started dialog-mode'
     )
 
-
-# TODO: спрятать текст сообщения вышел -> 39 строка и 64
-# TODO: Доставать админов из диспетчера
 
 @router.callback_query(F.data == "finish_to_write_private", StateFilter(ConnectToAdmin))
 async def end_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot):

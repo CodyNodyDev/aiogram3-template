@@ -106,6 +106,3 @@ async def on_backer(call: types.CallbackQuery):
     # TODO: задокументировать
 
     await call.message.edit_text(MSG['LEAVE_FEEDBACK'])
-
-
-
