@@ -1,8 +1,8 @@
 FROM python:3.10.12
 
-COPY requirements.txt .
-
 WORKDIR /app
+
+COPY ./requirements.txt .
 
 COPY . .
 
