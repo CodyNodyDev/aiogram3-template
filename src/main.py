@@ -5,6 +5,7 @@ from aiogram.fsm.storage.redis import RedisStorage
 
 from settings import Settings, setup_logs
 from utils.bugs_sender import SendExceptionService
+import utils.config
 from utils.config import TOKEN, DROP_PENDING_UPDATES, REDIS_URL
 from runners import run_polling
 
