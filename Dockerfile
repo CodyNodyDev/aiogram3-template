@@ -1,16 +1,17 @@
 FROM python:3.10.12
 
-WORKDIR /aiogram3-template
+# Set the working directory to /app
+WORKDIR /app
 
-COPY ./requirements.txt ./
+# Copy the requirements.txt file into the container at /app
+COPY requirements.txt .
 
-# Устанавливаем зависимости и gunicorn
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --upgrade pip
+# Copy the rest of the application code into the container at /app
+COPY . .
 
-RUN pip install --no-cache-dir -r ./requirements.txt
-
-
-# Укажите команду, которая будет выполняться при запуске контейнера
-CMD ["python3", "src/main.py"]
+# Specify the command to run on container start
+CMD ["python", "src/main.py"]
 
