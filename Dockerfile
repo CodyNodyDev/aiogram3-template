@@ -1,6 +1,6 @@
 FROM python:3.10.12
 
-WORKDIR /src
+WORKDIR /aiogram3-template
 
 COPY ./requirements.txt ./
 
