@@ -14,7 +14,7 @@ Install the welcome handler and the main menu handler
 
 
 TOKEN: Final[str] = config('TOKEN', default='')
-ADMINS_ID: Final[list] = ast.literal_eval(config('ADMINS_ID', default=''))
+ADMINS_ID: Final[list] = ast.literal_eval(config('ADMINS_ID', default='0 1 2 3'))
 REDIS_URL: Final[str] = config('REDIS_URL', default='')
 
 CHANNEL_ID = -1002032079838
