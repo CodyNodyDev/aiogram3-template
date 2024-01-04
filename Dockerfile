@@ -9,20 +9,17 @@ WORKDIR /app
 # Copy the requirements.txt file into the container at /app
 COPY requirements.txt .
 
-# Install PyYAML separately to avoid build issues
-RUN pip install --no-cache-dir PyYAML
+# Устанавливаем рабочую директорию в контейнере
+WORKDIR /usr/src/app
 
-# Upgrade pip
-RUN pip install --upgrade pip
+# Копируем файлы зависимостей в рабочую директорию
+COPY requirements.txt ./
 
-# Install dbus-python and other dependencies (except PyYAML) first
+# Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install PyYAML separately to avoid issues
-RUN pip install --no-cache-dir -r requirements.txt
+# Копируем остальные файлы проекта в рабочую директорию
+COPY ./src /usr/src/app
 
-# Copy the rest of the application code into the container at /app
-COPY . .
-
-# Specify the command to run on container start
-CMD ["python", "src/main.py"]
+# Задаем команду для запуска приложения
+CMD ["python", "./main.py"]
