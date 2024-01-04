@@ -3,8 +3,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.enums import ParseMode
 from aiogram.fsm.storage.redis import RedisStorage
 
-from settings import Settings
-from utils.loggers import setup
+from settings import Settings, setup_logs
 from utils.bugs_channel import SendExceptionService
 from utils.config import TOKEN, DROP_PENDING_UPDATES, REDIS_URL
 from runners import run_polling
@@ -13,7 +12,7 @@ from src.factories import create_dispatcher, create_bot
 
 
 def main() -> None:
-    setup()
+    setup_logs()
 
     settings: Settings = Settings(
                             bot_token=TOKEN,
