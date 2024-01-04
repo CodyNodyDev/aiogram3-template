@@ -4,6 +4,6 @@ WORKDIR /src/
 # copy project
 COPY . /src/
 # install dependencies
-RUN pip install --user -r requirements.txt
+RUN pip install -r requirements.txt
 # run app
 CMD ["python", "src/main.py"]
