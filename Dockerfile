@@ -1,14 +1,15 @@
 FROM python:3.10.12
 
+WORKDIR /src
 
-COPY .requirements.txt .
+COPY ./requirements.txt ./
 
-COPY . .
+# Устанавливаем зависимости и gunicorn
 
-WORKDIR /app
+RUN pip install --upgrade pip
 
-# Установите зависимости
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r ./requirements.txt
+
 
 # Укажите команду, которая будет выполняться при запуске контейнера
 CMD ["python3", "src/main.py"]
