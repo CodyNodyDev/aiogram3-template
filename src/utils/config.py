@@ -15,9 +15,9 @@ Install the welcome handler and the main menu handler
 
 load_dotenv()
 
-TOKEN: Final[str] = os.getenv('TOKEN', default='')
-ADMINS_ID: Final[list] = ast.literal_eval(os.getenv('ADMINS_ID', default='["00000"]'))
-REDIS_URL: Final[str] = os.getenv('REDIS_URL', default='')
+TOKEN: Final[str] = os.getenv('TOKEN')
+ADMINS_ID: Final[list] = ast.literal_eval(os.getenv('ADMINS_ID'))
+REDIS_URL: Final[str] = os.getenv('REDIS_URL')
 
 CHANNEL_ID = -1002032079838
 
