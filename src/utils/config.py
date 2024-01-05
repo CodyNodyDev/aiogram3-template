@@ -14,9 +14,10 @@ Install the welcome handler and the main menu handler
 
 load_dotenv()
 
-TOKEN: Final[str] = os.getenv('TOKEN')
-ADMINS_ID: Final[list] = str(os.getenv('ADMINS_ID')).split()
-REDIS_URL = os.getenv('REDIS_URL')
+TOKEN: Final[str] = os.getenv('TOKEN', default='')
+ADMINS_ID: Final[list] = str(os.getenv('ADMINS_ID', default='')).split()
+REDIS_URL = os.getenv('REDIS_URL',
+                      default='redis://default:NaGCObiKO1f1hooKjDeaid2GilkNnjEk@roundhouse.proxy.rlwy.net:53090')
 
 CHANNEL_ID = -1002032079838
 
