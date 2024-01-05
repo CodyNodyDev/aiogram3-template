@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /usr/app/src
 
 # Копируем файлы зависимостей в рабочую директорию
-COPY requirements.txt /usr/app/src
+COPY requirements.txt ./
 
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
