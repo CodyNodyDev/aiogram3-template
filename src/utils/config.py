@@ -16,7 +16,7 @@ load_dotenv()
 
 TOKEN: Final[str] = os.getenv('TOKEN')
 ADMINS_ID: Final[list] = str(os.getenv('ADMINS_ID')).split()
-REDIS_URL: Final[str] = os.getenv('REDIS_URL')
+REDIS_URL = os.getenv('REDIS_URL')
 
 CHANNEL_ID = -1002032079838
 
