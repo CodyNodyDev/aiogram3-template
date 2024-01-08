@@ -3,13 +3,12 @@ from typing import Union
 from aiogram.filters import BaseFilter
 from aiogram.types import Message
 
-"""
-Types:
-group, supergroup, private
-"""
-
 
 class ChatTypeFilter(BaseFilter):
+    """
+    Types: group, supergroup, private
+    """
+
     def __init__(self, chat_type: Union[str, list]):
         self.chat_type = chat_type
 

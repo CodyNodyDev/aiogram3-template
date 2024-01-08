@@ -14,12 +14,9 @@ class AdminFilter(BaseFilter):
         """
         Check if the user is an admin based on their chat id.
 
-        Args:
-            message (Union[Message, InlineQuery]):
-            The message or inline query from the user.
-
-        Returns:
-            bool: True if the user is an admin, False otherwise.
+        :param:  message (Union[Message, InlineQuery]):
+                 The message or inline query from the user.
+        :return: True if the user is an admin, False otherwise.
         """
 
         try:

@@ -15,7 +15,9 @@ def run_polling(
         bot: Bot,
 ) -> None:
 
-    """Bot start polling"""
+    """
+    Bot start polling
+    """
 
     dispatcher.startup.register(polling_startup)
     return dispatcher.run_polling(bot)

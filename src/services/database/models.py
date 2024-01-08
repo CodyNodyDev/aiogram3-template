@@ -95,7 +95,7 @@ class Database(ABC):
         """
         Add a new user to the database.
 
-        Args:
+        :param:
             user_data (User): User object of user to add.
             user_id (user id): The ID of user to add.
         """
@@ -107,11 +107,11 @@ class Database(ABC):
         """
         Get a specific parameter of a user.
 
-        Args:
+        :param:
             user_id (int): The ID of the user.
             parameter (str): The name of the parameter.
 
-        Returns:
+        :return:
             Any: The value of the parameter.
         """
 
@@ -122,7 +122,7 @@ class Database(ABC):
         """
         Update a specific parameter of a user.
 
-        Args:
+        :param:
             user_id (int): The ID of the user.
             parameter (str): The name of the parameter.
             value (Any): The new value of the parameter.
@@ -135,10 +135,10 @@ class Database(ABC):
         """
         Get a specific settings parameter.
 
-        Args:
+        :param:
             param_name (str): The name of the parameter.
 
-        Returns:
+        :return:
             Optional[str]: The value of the parameter, or None if it doesn't exist.
         """
 
@@ -149,7 +149,7 @@ class Database(ABC):
         """
         Update a specific settings parameter.
 
-        Args:
+        :param:
             param_name (str): The name of the parameter.
             value (str): The new value of the parameter.
         """

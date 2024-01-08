@@ -12,9 +12,11 @@ router = Router()
 
 
 @router.message(CommandStart(), StateFilter(None))
-async def start_handler(message: Message):
+async def start_handler(message: Message) -> None:
     """
     This handler receives messages with `/start` command
+
+    :param message: Answer to user
     """
 
     await message.answer(MSG['HELLO'].format(
@@ -26,9 +28,11 @@ async def start_handler(message: Message):
 
 
 @router.message(Command('new_name'), StateFilter(None))
-async def new_name_handler(message: Message):
+async def new_name_handler(message: Message) -> None:
     """
     Set bot's name for current chat
+
+    :param message: Reply to user message
     """
 
     # TODO: Здесь должно быть изменение контекста для пользователя -> меняем имя бота

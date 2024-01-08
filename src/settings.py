@@ -1,6 +1,6 @@
 import logging
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, Any
 
 from aiogram.fsm.storage.base import BaseStorage
 
@@ -8,13 +8,15 @@ from aiogram.fsm.storage.base import BaseStorage
 @dataclass
 class Settings:
 
-    """Settings for telegram bot"""
+    """
+    Settings for telegram bot
+    """
 
-    bot_token: str
+    bot_token: Optional[str]
     storage: Optional[BaseStorage]
     drop_pending_updates: bool
-    parse_mode: any
-    database: any
+    parse_mode: Any
+    database: Any
 
 
 def setup_logs(level=logging.INFO) -> None:

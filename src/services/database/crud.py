@@ -1,3 +1,5 @@
+from typing import Optional, Any
+
 from services.database.models import User, Project, Database
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
@@ -7,6 +9,10 @@ Base = declarative_base()
 
 
 class Postgres(Database):
+    """
+    Doc in models.py
+    """
+
     def __init__(self):
         self._DB_HOST = DB_HOST
         self._DB_PORT = DB_PORT
@@ -21,31 +27,31 @@ class Postgres(Database):
     async def create_tables(self) -> None:
         pass
 
-    async def add_user(self, user_id: int, user_data: User):
+    async def add_user(self, user_id: int, user_data: User) -> None:
         async with self.Session() as session:
             if await session.get(User, user_id):
                 return None
             session.add(user_data)
             await session.commit()
 
-    async def get_user_parameter(self, user_id: int, parameter: str):
+    async def get_user_parameter(self, user_id: int, parameter: str) -> Any:
         async with self.Session() as session:
             user = await session.get(User, user_id)
             return getattr(user, parameter, None)
 
-    async def update_user_parameter(self, user_id: int, parameter: str, value):
+    async def update_user_parameter(self, user_id: int, parameter: str, value) -> None:
         async with self.Session() as session:
             user = await session.get(User, user_id)
             if user:
                 setattr(user, parameter, value)
                 await session.commit()
 
-    async def get_project_parameter(self, param_name: str):
+    async def get_project_parameter(self, param_name: str) -> Optional[str]:
         async with self.Session() as session:
             setting = await session.get(Project, param_name)
             return setting.value if setting else None
 
-    async def update_project_parameter(self, param_name: str, value: str):
+    async def update_project_parameter(self, param_name: str, value: str) -> None:
         async with self.Session() as session:
             setting = await session.get(Project, param_name)
             if setting:

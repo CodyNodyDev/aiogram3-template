@@ -5,7 +5,14 @@ from aiogram.types import Message
 from utils.config import DIALOGS_URL
 
 
-async def save(state: FSMContext):
+async def save(state: FSMContext) -> None:
+    """
+    Save messages into .txt file and clear state
+
+    :param state:
+    :return: None
+    """
+
     dialog_messages_dict = await state.get_data()
     output_message = ''
     dialog_messages_map = map(str, dialog_messages_dict.keys())
@@ -13,6 +20,7 @@ async def save(state: FSMContext):
 
     for key in dialog_messages_dict:
         output_message += f'{key}\n{dialog_messages_dict[key]}\n\n'
+
     text_file = open(f"{DIALOGS_URL}dialog_{id_for_filename}.txt", "w")
     text_file.write(output_message)
     text_file.close()
@@ -20,7 +28,14 @@ async def save(state: FSMContext):
     await state.clear()
 
 
-async def create_template_for_data(message: Message):
+async def create_template_for_data(message: Message) -> list:
+    """
+    Generate a template of message [ADMIN-USER]
+
+    :param message:
+    :return: list of user_key, user_data, admin_key, admin_data, user_user_id
+    """
+
     user_user_id = int(message.reply_to_message.text.split('ID:')[1])
     user_datetime = str(message.reply_to_message.date).split()[0] + str(message.reply_to_message.date)[-1]
     user_text = message.reply_to_message.text.split()[0]

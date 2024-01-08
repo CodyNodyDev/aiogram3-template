@@ -9,9 +9,9 @@ class SendExceptionService:
     def __init__(self, bot: Bot):
         self._bot: Bot = bot
 
-    async def send_ex(self, value: str = None, traceback: str = None):
+    async def send_ex(self, value: str = None, traceback: str = None) -> None:
         bot_info = await self._bot.me()
-        ex_message = f"""
+        ex_message = f'''
 Bot_name: 
 {bot_info.username}        
 
@@ -23,7 +23,7 @@ Error Value:
 
 Traceback:
 {traceback}
-        """
+        '''
         text_parts = self.split_text(ex_message)
         for text_part in text_parts:
             await self._bot.send_message(chat_id=CHANNEL_ID, text=text_part)

@@ -10,7 +10,7 @@ from settings import Settings
 def create_dispatcher(settings: Settings, exception_service: Any) -> Dispatcher:
     """
     :return: Configured Dispatcher with
-            included routers
+             included routers
     """
 
     dispatcher: Dispatcher = Dispatcher(

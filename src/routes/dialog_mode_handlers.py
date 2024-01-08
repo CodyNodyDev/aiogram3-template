@@ -15,11 +15,14 @@ router = Router()
 
 
 @router.callback_query(F.data == "go_to_write_private", StateFilter(None))
-async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot):
+async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot) -> None:
     """
     Enabling user and admin dialog mode
-
     Bot notifies the administrator of a user's message
+
+    :param call:  Edit user's message
+    :param state: Set start to communication user with admin
+    :param bot:   Send message to admin
     """
 
     await state.set_state(ConnectToAdmin.started)
@@ -38,9 +41,13 @@ async def start_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext
 
 
 @router.callback_query(F.data == "finish_to_write_private", StateFilter(ConnectToAdmin))
-async def end_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot):
+async def end_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, bot: Bot) -> None:
     """
     Disabling user and admin dialog-mode
+
+    :param call:  Send message to user, edit inline keyboard
+    :param state: Clear state
+    :param bot:   Send message to admin
     """
 
     await state.clear()
@@ -62,10 +69,14 @@ async def end_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext, 
 
 
 @router.message(StateFilter(ConnectToAdmin))
-async def dialog_user_handler(message: Message, state: FSMContext, bot: Bot):
+async def dialog_user_handler(message: Message, state: FSMContext, bot: Bot) -> None:
     """
     Text handler for users
-        Sending message from user to admin
+    Sending message from user to admin
+
+    :param message: Get user-info from message Object
+    :param state:   Save data (user id, message id, message text) into FSMContext
+    :param bot:     Send user's message to Admin
     """
 
     await state.set_data({f'{message.from_user.id}_{message.message_id}': message.text})
@@ -75,12 +86,15 @@ async def dialog_user_handler(message: Message, state: FSMContext, bot: Bot):
 
 
 @router.message(AdminFilter())
-async def dialog_admin_handler(message: Message, state: FSMContext, bot: Bot):
+async def dialog_admin_handler(message: Message, state: FSMContext, bot: Bot) -> None:
     """
     Handler for admin
         Can only respond with a reply
-
     Sending message from admin to user
+
+    :param message: Get user-info from message Object
+    :param state:   Append messages in FMSContext from user
+    :param bot:     Send message to admin
     """
 
     user_key, user_data, admin_key, admin_data, \
@@ -101,6 +115,9 @@ async def dialog_admin_handler(message: Message, state: FSMContext, bot: Bot):
 async def end_dialog_mode_handler(call: types.CallbackQuery, state: FSMContext):
     """
     Saving dialog story
+
+    :param call:  Edit user inline keyboard
+    :param state: State Object for saving-helper
     """
 
     await dialog_saver.save(state=state)

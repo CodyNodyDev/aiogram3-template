@@ -19,9 +19,9 @@ class KBuilder(InlineKeyboardBuilder):
         To create a keyboard, you need an object that contains 3 fields:
 
         :param kb_data:
-            buttons_count: the number of buttons
-            key_board_view: the view
-            buttons_data: list of the data {button name and their callbacks}
+                    buttons_count:  The number of buttons
+                    key_board_view: The view
+                    buttons_data:   List of the data {button name and their callbacks}
         """
 
         super().__init__()

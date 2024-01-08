@@ -15,6 +15,8 @@ router = Router()
 async def on_backer(call: types.CallbackQuery):
     """
     Pressed the first button
+
+    :param call: Edit user text and inline keyboard
     """
 
     await call.message.edit_text(
@@ -30,6 +32,8 @@ async def on_backer(call: types.CallbackQuery):
 async def on_backer(call: types.CallbackQuery):
     """
     Flip the cards forward
+
+    :param call: Edit user text and inline keyboard
     """
 
     # TODO: спрятать текст сообщения в константы
@@ -47,6 +51,8 @@ async def on_backer(call: types.CallbackQuery):
 async def on_backer(call: types.CallbackQuery):
     """
     Flip the cards backward
+
+    :param call: Edit user text and inline keyboard
     """
 
     await call.message.edit_text(
@@ -62,6 +68,8 @@ async def on_backer(call: types.CallbackQuery):
 async def on_backer(call: types.CallbackQuery):
     """
     Open a card
+
+    :param call: Edit user text and inline keyboard
     """
 
     # TODO: спрятать текст сообщения в константы
@@ -80,6 +88,8 @@ async def on_backer(call: types.CallbackQuery):
 async def on_backer(call: types.CallbackQuery):
     """
     Back button to return to the main menu
+
+    :param call: Edit user text and inline keyboard
     """
 
     await call.message.edit_text(MSG['MAIN_MENU'])
@@ -91,15 +101,21 @@ async def on_backer(call: types.CallbackQuery):
 
 @router.callback_query(F.data == "go_to_education", StateFilter(None))
 async def on_backer(call: types.CallbackQuery):
+    """
+    Go to education menu
 
-    # TODO: задокументировать
+    :param call: Edit user text
+    """
 
     await call.message.edit_text(MSG['EDUCATION_MENU'])
 
 
 @router.callback_query(F.data == "go_to_write_feedback", StateFilter(None))
-async def on_backer(call: types.CallbackQuery):
+async def on_backer(call: types.CallbackQuery) -> None:
+    """
+    Got to ~ write feedback ~ menu
 
-    # TODO: задокументировать
+    :param call: Edit user text
+    """
 
     await call.message.edit_text(MSG['LEAVE_FEEDBACK'])
