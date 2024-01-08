@@ -14,8 +14,7 @@ class Settings:
     storage: Optional[BaseStorage]
     drop_pending_updates: bool
     parse_mode: any
-
-    # database: TODO: add postgre
+    database: any
 
 
 def setup_logs(level=logging.INFO) -> None:

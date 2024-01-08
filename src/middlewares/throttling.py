@@ -55,12 +55,11 @@ class ThrottlingMiddleware(BaseMiddleware):
                     )
 
                     throttling_data.sent_warning = True
-
                 return None
 
             throttling_data.rate += 1
-
             return await handler(event, data)
+
         except Exception as e:
             exception_service: SendExceptionService = data.get("exception_service")
             await exception_service.send_ex(value=e.__str__(), traceback=traceback.format_exc())

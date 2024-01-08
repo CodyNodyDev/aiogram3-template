@@ -18,6 +18,12 @@ TOKEN: Final[str] = os.getenv('TOKEN', default='')
 ADMINS_ID: Final[list] = str(os.getenv('ADMINS_ID', default='')).split()
 REDIS_URL = os.getenv('REDIS_URL', default='')
 
+DB_PORT: Final[int] = int(os.getenv("DB_PORT"))
+DB_HOST: Final[str] = os.getenv("DB_HOST")
+DB_NAME: Final[str] = os.getenv("DB_NAME")
+DB_USER: Final[str] = os.getenv("DB_USER")
+DB_PASSWORD: Final[str] = os.getenv("DB_PASSWORD")
+
 CHANNEL_ID = -1002032079838
 
 DROP_PENDING_UPDATES = True

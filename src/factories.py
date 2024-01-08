@@ -18,7 +18,8 @@ def create_dispatcher(settings: Settings, exception_service: Any) -> Dispatcher:
         name="main_dispatcher",
         settings=settings,
         storage=settings.storage,
-        exception_service=exception_service
+        exception_service=exception_service,
+        database=settings.database
     )
 
     dispatcher.include_router(

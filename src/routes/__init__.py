@@ -1,6 +1,6 @@
 from aiogram import Router
 
-from middlewares import ThrottlingMiddleware
+from middlewares import ThrottlingMiddleware, AddUserMiddleware
 
 
 def get_handlers_router() -> Router:
@@ -21,6 +21,8 @@ def get_handlers_router() -> Router:
 
     router.message.middleware(ThrottlingMiddleware())
     router.callback_query.middleware(ThrottlingMiddleware())
+
+    router.message.middleware(AddUserMiddleware())
 
     router.include_routers(
         admin_router.router,

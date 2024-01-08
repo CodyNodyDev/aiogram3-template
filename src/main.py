@@ -9,6 +9,7 @@ from utils.config import TOKEN, DROP_PENDING_UPDATES, REDIS_URL
 from runners import run_polling
 
 from factories import create_dispatcher, create_bot
+from services.database.crud import Postgres
 
 
 def main() -> None:
@@ -19,6 +20,7 @@ def main() -> None:
                             storage=RedisStorage.from_url(url=REDIS_URL),
                             drop_pending_updates=DROP_PENDING_UPDATES,
                             parse_mode=ParseMode.HTML,
+                            database=Postgres()
     )
     bot: Bot = create_bot(settings=settings)
     exception_service = SendExceptionService(bot)
