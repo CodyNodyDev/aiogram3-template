@@ -2,7 +2,6 @@ import random
 
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
-
 from utils.config import DIALOGS_URL
 
 

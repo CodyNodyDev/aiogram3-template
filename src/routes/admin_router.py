@@ -1,8 +1,6 @@
 from aiogram import Router
-
-from aiogram.types import Message
 from aiogram.filters import Command, StateFilter
-
+from aiogram.types import Message
 from filters.AdminFilter import AdminFilter
 
 """ Router administrator's commands """

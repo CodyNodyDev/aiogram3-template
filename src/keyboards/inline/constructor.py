@@ -1,13 +1,11 @@
-from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.types import InlineKeyboardMarkup
-
+from aiogram.utils.keyboard import InlineKeyboardBuilder
 from keyboards.keyboard_config import (
     DEFAULT_DATA,
     NAME, CALLBACK,
     COLUMN, SHOP_CARDS,
     JUST_BACK, CUSTOM
 )
-
 
 """ 
 Customize Keyboard Builder 

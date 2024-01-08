@@ -1,12 +1,9 @@
-from sqlalchemy import Column, Integer, String, BigInteger
-from sqlalchemy.ext.declarative import declarative_base
+from abc import ABC, abstractmethod
 from enum import Enum
 from typing import Any, Optional
-from abc import ABC, abstractmethod
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 
-# from database.base import Database
-# from utils.config import DB_NAME, DB_PASSWORD, DB_USER, DB_HOST, DB_PORT
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 

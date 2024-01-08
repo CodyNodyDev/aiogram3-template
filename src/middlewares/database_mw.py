@@ -3,7 +3,6 @@ from typing import Callable, Dict, Any, Awaitable, Union
 
 from aiogram import BaseMiddleware
 from aiogram.types import Message, CallbackQuery, TelegramObject
-
 from services.database.models import Database, User
 from utils import SendExceptionService, get_date_time
 

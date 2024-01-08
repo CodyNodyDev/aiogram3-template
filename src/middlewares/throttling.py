@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import traceback
 from dataclasses import dataclass, field
 from typing import Any, Awaitable, Callable
@@ -7,9 +5,8 @@ from typing import Any, Awaitable, Callable
 from aiogram import BaseMiddleware, Bot
 from aiogram.types import TelegramObject, User
 from cachetools import TTLCache
-
-from utils.config import THROTTLING_TIME_PERIOD, THROTTLING_MAX_RATE
 from utils.bugs_sender import SendExceptionService
+from utils.config import THROTTLING_TIME_PERIOD, THROTTLING_MAX_RATE
 
 
 @dataclass(kw_only=True, slots=True)

@@ -1,8 +1,7 @@
+import os
 from typing import Final
 
-import os
 from dotenv import load_dotenv
-
 
 """
 The typing module's Final() annotation type is a construct that indicates 

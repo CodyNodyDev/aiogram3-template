@@ -1,10 +1,7 @@
-import asyncio
-
-from sqlalchemy.ext.declarative import declarative_base
+from services.database.models import User, Project, Database
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
-
-from src.utils.config import DB_NAME, DB_PASSWORD, DB_USER, DB_HOST, DB_PORT
-from src.services.database.models import User, Project, Database
+from sqlalchemy.ext.declarative import declarative_base
+from utils.config import DB_NAME, DB_PASSWORD, DB_USER, DB_HOST, DB_PORT
 
 Base = declarative_base()
 

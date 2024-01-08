@@ -1,11 +1,10 @@
 from typing import Any
 
 from aiogram import Bot, Dispatcher
-
 from aiogram.client.session.aiohttp import AiohttpSession
 
-from settings import Settings
 from routes import get_handlers_router
+from settings import Settings
 
 
 def create_dispatcher(settings: Settings, exception_service: Any) -> Dispatcher:
