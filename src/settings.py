@@ -7,10 +7,10 @@ from aiogram.fsm.storage.base import BaseStorage
 
 @dataclass
 class Settings:
-
     """
     Settings for telegram bot
     """
+
 
     bot_token: Optional[str]
     storage: Optional[BaseStorage]

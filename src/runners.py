@@ -14,7 +14,6 @@ def run_polling(
         dispatcher: Dispatcher,
         bot: Bot,
 ) -> None:
-
     """
     Bot start polling
     """
